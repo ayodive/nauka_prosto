@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f0">
+  <meta name="description" content="Детские головоломки и пазлы «Наука просто». Познакомься с Машей, собери лампочку и реши первую задачку.">
+  <title>Наука просто — детские головоломки и пазлы</title>
+  <link rel="icon" href="assets/atom.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/nunito-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+  <script defer src="catalog.js"></script>
+</head>
+<body id="top">
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="atom" viewBox="0 0 48 48">
+        <g fill="none" stroke="currentColor" stroke-width="2.25">
+          <ellipse cx="24" cy="24" rx="21" ry="8.6"/>
+          <ellipse cx="24" cy="24" rx="21" ry="8.6" transform="rotate(60 24 24)"/>
+          <ellipse cx="24" cy="24" rx="21" ry="8.6" transform="rotate(-60 24 24)"/>
+        </g>
+        <circle cx="24" cy="24" r="3.9" fill="var(--nucleus, currentColor)"/>
+      </symbol>
+      <symbol id="spark" viewBox="0 0 32 32">
+        <path fill="currentColor" d="M14.45 2.9c.44-1.54 2.66-1.54 3.1 0 1.95 6.66 4.89 9.6 11.55 11.55 1.54.44 1.54 2.66 0 3.1-6.66 1.95-9.6 4.89-11.55 11.55-.44 1.54-2.66 1.54-3.1 0C12.5 22.44 9.56 19.5 2.9 17.55c-1.54-.44-1.54-2.66 0-3.1C9.56 12.5 12.5 9.56 14.45 2.9Z"/>
+      </symbol>
+      <symbol id="bulb" viewBox="0 0 32 32">
+        <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 22h12m-11 4h10m-8 4h6M16 3a9 9 0 0 0-7.1 14.5c1 1.33 1.72 2.4 1.72 4.5h10.76c0-2.1.72-3.17 1.72-4.5A9 9 0 0 0 16 3Z"/>
+          <path d="M16 21.5v-8m-2.7-.7 2.7 2 2.7-2"/>
+        </g>
+      </symbol>
+      <symbol id="flask" viewBox="0 0 32 32">
+        <path d="M12 3h8m-6 0v10L5.7 25.3c-1 1.5.1 3.7 2 3.7h16.6c1.9 0 3-2.2 2-3.7L18 13V3M10 20h12m-8 4h.1m4 1h.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="piece-icon" viewBox="0 0 32 32">
+        <path d="M7 5h7a3.5 3.5 0 1 1 6 0h6v7a3.5 3.5 0 1 0 0 6v7h-7a3.5 3.5 0 0 0-6 0H7v-7a3.5 3.5 0 1 1 0-6V5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="mail" viewBox="0 0 24 24">
+        <rect x="3" y="5.5" width="18" height="13" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="m4 7 7 5.4a1.6 1.6 0 0 0 2 0L20 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="scroll-mouse" viewBox="0 0 24 28">
+        <rect x="5" y="2" width="14" height="22" rx="7" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M12 7v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </symbol>
+      <path id="puzzle-cutout" d="M30 18q-5 0-5 5v23h-6a12 12 0 1 0 0 21h6v24q0 5 5 5h24v-5a12 12 0 1 0 22 0v5h24q5 0 5-5V67h-5a12 12 0 1 1 0-21h5V23q0-5-5-5H76v5a12 12 0 1 1-22 0v-5Z"/>
+      <path id="glass-nw" d="M345 71C278 71 224 122 224 185H265C265 208 301 208 301 185H345V145C371 145 371 111 345 111Z"/>
+      <path id="glass-ne" d="M345 71C412 71 466 122 466 185H421C421 213 385 213 385 185H345V145C371 145 371 111 345 111Z"/>
+      <path id="glass-sw" d="M224 185H265C265 208 301 208 301 185H345V255C318 255 318 291 345 291V333H291C290 310 275 292 260 273C242 249 225 222 224 185Z"/>
+      <path id="glass-se" d="M345 185H385C385 213 421 213 421 185H466C465 222 448 249 430 273C415 292 400 310 399 333H345V291C318 291 318 255 345 255Z"/>
+      <linearGradient id="green-piece" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+        <stop stop-color="#d4ee9c"/>
+        <stop offset=".58" stop-color="#a4d65c"/>
+        <stop offset="1" stop-color="#83b945"/>
+      </linearGradient>
+      <linearGradient id="blue-piece" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+        <stop stop-color="#82b4e1"/>
+        <stop offset="1" stop-color="#3774b0"/>
+      </linearGradient>
+      <linearGradient id="white-piece" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+        <stop stop-color="#f5fbff"/>
+        <stop offset="1" stop-color="#b6d7ef"/>
+      </linearGradient>
+      <path id="workshop-round" d="M-43-32H35V-11H44a11 11 0 0 1 0 22h-9v21h-78V12a12 12 0 0 0 0-24Z"/>
+      <path id="workshop-angle" d="M-43-32H35v20L53 0 35 12v20h-78V12a12 12 0 0 0 0-24Z"/>
+      <g id="workbench">
+        <circle cx="218" cy="176" r="144" fill="#d6e8b1"/>
+        <circle cx="218" cy="176" r="158" fill="none" stroke="#90a775" stroke-width="1.4" stroke-dasharray="2 7" stroke-linecap="round" opacity=".74"/>
+        <path d="M58 229C2 204 92 142 220 104S483 62 503 87c19 24-52 73-152 111" fill="none" stroke="#7b9c63" stroke-width="1.35" opacity=".65"/>
+        <circle cx="456" cy="75" r="4" fill="#79bc32"/>
+        <use href="#atom" x="530" y="125" width="54" height="54" style="color:#78995f;--nucleus:#79bc32"/>
+        <use href="#spark" x="444" y="105" width="25" height="25" style="color:#5b842f"/>
+        <image href="assets/masha-desk.webp" x="93" y="21" width="252" height="357"/>
+        <path d="M20 376h640v17q0 13-13 13H33q-13 0-13-13Z" fill="#93a977" stroke="#638455" stroke-width="2"/>
+        <path d="M89 267h502q16 0 26 16l42 78q9 18-9 19H30q-18 0-9-18l42-79q10-16 26-16Z" fill="#f2f5e8" stroke="#789163" stroke-width="2"/>
+        <path d="M371 280h221l33 78H349z" fill="#e0eccd" stroke="#a1b689" stroke-width="1.4" stroke-dasharray="3 5"/>
+        <path d="M387 293h20m167 0h12l5 12m-223 32-4 9h15m219 0h12l-4-10" fill="none" stroke="#8ca877" stroke-width="1.6" stroke-linecap="round"/>
+      </g>
+      <g id="workshop-turn">
+        <use href="#workshop-round" transform="translate(420 321) rotate(-76) scale(.68)" fill="none" stroke="#75956e" stroke-width="2.5" stroke-dasharray="5 5"/>
+        <path d="M440 282q37-32 77-12m-12-1 13 2-6-11" fill="none" stroke="#698d4c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="translate(550 323)">
+          <use href="#workshop-round" class="workshop-slot" transform="scale(.77)"/>
+          <g class="workshop-turn-piece">
+            <use href="#workshop-round" transform="translate(0 5) scale(.77)" fill="#507b32"/>
+            <use href="#workshop-round" transform="scale(.77)" fill="url(#green-piece)" stroke="#5e8941" stroke-width="2.4"/>
+          </g>
+        </g>
+      </g>
+      <g id="workshop-compare">
+        <g transform="translate(415 323)">
+          <g class="workshop-compare-left">
+            <use href="#workshop-round" transform="translate(0 5) scale(.77)" fill="#477aab"/>
+            <use href="#workshop-round" transform="scale(.77)" fill="url(#white-piece)" stroke="#4475a5" stroke-width="2.4"/>
+          </g>
+        </g>
+        <g transform="translate(545 323)">
+          <g class="workshop-compare-right">
+            <use href="#workshop-angle" transform="translate(0 5) scale(.77)" fill="#477aab"/>
+            <use href="#workshop-angle" transform="scale(.77)" fill="url(#white-piece)" stroke="#4475a5" stroke-width="2.4"/>
+          </g>
+        </g>
+        <g class="workshop-difference" fill="none" stroke="#5b852f" stroke-width="3">
+          <circle cx="449" cy="323" r="16"/>
+          <circle cx="581" cy="323" r="16"/>
+        </g>
+      </g>
+      <g id="workshop-retry">
+        <use href="#workshop-round" class="workshop-slot" transform="translate(550 323) scale(.77)"/>
+        <g transform="translate(416 323)">
+          <g class="workshop-first-try">
+            <use href="#workshop-angle" transform="translate(0 5) scale(.74)" fill="#4d7eaf"/>
+            <use href="#workshop-angle" transform="scale(.74)" fill="url(#white-piece)" stroke="#4475a5" stroke-width="2.4"/>
+            <path class="workshop-miss" d="m-19-44 13 13m0-13-13 13" fill="none" stroke="#9d5143" stroke-width="4" stroke-linecap="round"/>
+          </g>
+        </g>
+        <g transform="translate(550 323)">
+          <g class="workshop-next-try">
+            <use href="#workshop-round" transform="translate(0 5) scale(.77)" fill="#507b32"/>
+            <use href="#workshop-round" transform="scale(.77)" fill="url(#green-piece)" stroke="#5e8941" stroke-width="2.4"/>
+          </g>
+          <path class="workshop-fit" d="m-17-38 7 7 14-15" fill="none" stroke="#507526" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+
+      <path id="rocket-nose-shape" d="M-42-26 0-99 42-26Z"/>
+      <path id="rocket-body-shape" d="M-42-26H42V60H-42Z"/>
+      <path id="rocket-left-shape" d="M-42 13-91 73-42 60Z"/>
+      <path id="rocket-right-shape" d="M42 13 91 73 42 60Z"/>
+      <path id="rocket-tail-shape" d="M-27 60H27L19 92H-19Z"/>
+      <g id="rocket-nose">
+        <use href="#rocket-nose-shape" transform="translate(0 5)" fill="#30619a"/>
+        <use href="#rocket-nose-shape" fill="url(#blue-piece)" stroke="#2e649c" stroke-width="1.6" stroke-linejoin="round"/>
+      </g>
+      <g id="rocket-body">
+        <use href="#rocket-body-shape" transform="translate(0 5)" fill="#6a913b"/>
+        <use href="#rocket-body-shape" fill="url(#green-piece)" stroke="#587f2e" stroke-width="1.6" stroke-linejoin="round"/>
+        <circle cy="11" r="18.5" fill="#e5f1f9" stroke="#3281af" stroke-width="2.7"/>
+        <path d="M-10 11a10 10 0 0 1 10-10" fill="none" stroke="#fff" stroke-width="2.7" stroke-linecap="round"/>
+      </g>
+      <g id="rocket-left">
+        <use href="#rocket-left-shape" transform="translate(0 5)" fill="#4777a3"/>
+        <use href="#rocket-left-shape" fill="url(#white-piece)" stroke="#4f83b2" stroke-width="1.6" stroke-linejoin="round"/>
+      </g>
+      <g id="rocket-right">
+        <use href="#rocket-right-shape" transform="translate(0 5)" fill="#4777a3"/>
+        <use href="#rocket-right-shape" fill="url(#white-piece)" stroke="#4f83b2" stroke-width="1.6" stroke-linejoin="round"/>
+      </g>
+      <g id="rocket-tail">
+        <use href="#rocket-tail-shape" transform="translate(0 5)" fill="#557a36"/>
+        <use href="#rocket-tail-shape" fill="#93c654" stroke="#5d8137" stroke-width="1.6" stroke-linejoin="round"/>
+      </g>
+      <g id="rocket-model">
+        <g class="rocket-part" style="--piece-x:-124px;--piece-y:31px;--piece-angle:-31deg;--piece-center:0px -55px"><use href="#rocket-nose"/></g>
+        <g class="rocket-part" style="--piece-x:-10px;--piece-y:3px;--piece-angle:-13deg;--piece-center:0px 17px"><use href="#rocket-body"/></g>
+        <g class="rocket-part" style="--piece-x:-68px;--piece-y:17px;--piece-angle:25deg;--piece-center:-60px 54px"><use href="#rocket-left"/></g>
+        <g class="rocket-part" style="--piece-x:71px;--piece-y:-100px;--piece-angle:-30deg;--piece-center:60px 54px"><use href="#rocket-right"/></g>
+        <g class="rocket-part" style="--piece-x:116px;--piece-y:-16px;--piece-angle:24deg;--piece-center:0px 74px"><use href="#rocket-tail"/></g>
+      </g>
+      <pattern id="assembly-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <path d="M22 0H0v22" fill="none" stroke="#88acc3" stroke-width=".8" opacity=".54"/>
+      </pattern>
+      <g id="assembly-bench">
+        <circle cx="347" cy="215" r="177" fill="#d5e5f2"/>
+        <circle cx="347" cy="215" r="195" fill="none" stroke="#88acc3" stroke-width="1.4" stroke-dasharray="2 7" stroke-linecap="round" opacity=".65"/>
+        <path d="M57 104q0-18 18-18h530q18 0 18 18v239q0 18-18 18H75q-18 0-18-18Z" fill="#eef5f9" stroke="#aac4d5" stroke-width="1.6"/>
+        <path d="M75 100h530v247H75Z" fill="url(#assembly-grid)"/>
+        <path d="M75 116v-16h16m498 0h16v16m0 215v16h-16m-498 0H75v-16" fill="none" stroke="#729aba" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <g id="assembly-carton">
+        <path d="m148 242 192 100 201-92-191-91Z" fill="#294a6a" opacity=".12" transform="translate(13 10)"/>
+        <path d="m152 184 190 88v61l-190-88Z" fill="#80aa4d" stroke="#477332" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m342 272 190-90v62l-190 89Z" fill="#6c963e" stroke="#477332" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m152 184 190-88 190 86-190 90Z" fill="url(#green-piece)" stroke="#477332" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m166 183 176-79 176 79-176 80Z" fill="none" stroke="#dcedb0" stroke-width="1.6"/>
+        <path d="m152 209 190 87 190-89" fill="none" stroke="#4c7433" stroke-width="1.6" stroke-linejoin="round"/>
+        <g transform="translate(343 185) rotate(-15) scale(1 .71)">
+          <circle r="53" fill="#f2f7dc" stroke="#6f9b3c" stroke-width="1.5"/>
+          <use href="#atom" x="-39" y="-39" width="78" height="78" style="color:#285383;--nucleus:#79bc32"/>
+        </g>
+        <use href="#spark" x="553" y="119" width="26" height="26" style="color:#55843a"/>
+      </g>
+      <g id="assembly-pieces">
+        <g transform="translate(341 207) scale(1.24)">
+          <use href="#rocket-model"/>
+        </g>
+        <g class="assembly-sparks">
+          <use href="#spark" x="464" y="126" width="27" height="27" style="color:#628e38"/>
+          <use href="#spark" x="212" y="232" width="19" height="19" style="color:#5f8bb0"/>
+        </g>
+      </g>
+      <g id="product-stage">
+        <circle cx="280" cy="167" r="113" fill="#fff" opacity=".38"/>
+        <circle cx="280" cy="167" r="130" fill="none" stroke="currentColor" stroke-width="1.25" stroke-dasharray="2 7" stroke-linecap="round" opacity=".28"/>
+        <path d="M89 246c-8-30 75-90 183-130s206-50 215-20c9 28-61 83-159 123" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".32"/>
+        <use href="#spark" x="430" y="56" width="24" height="24" opacity=".7"/>
+        <use href="#spark" x="105" y="259" width="18" height="18" opacity=".65"/>
+      </g>
+      <g id="product-cube-unit" stroke="var(--cube-edge)" stroke-width="1.65" stroke-linejoin="round">
+        <path d="M0-22 42 0 0 23-42 0Z" fill="var(--cube-top)"/>
+        <path d="M-42 0 0 23v47l-42-23Z" fill="var(--cube-left)"/>
+        <path d="M0 23 42 0v47L0 70Z" fill="var(--cube-right)"/>
+        <path d="M-35 0 0-18 35 0" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" opacity=".45"/>
+      </g>
+      <path id="product-orbit-upper" d="M-119 0A119 45 0 0 1 119 0"/>
+      <path id="product-orbit-lower" d="M119 0A119 45 0 0 1-119 0"/>
+      <g id="product-bulb-base" stroke="#40638e" stroke-width="2.2" stroke-linejoin="round">
+        <path d="M292 333h106v56q0 12-12 12h-82q-12 0-12-12Z" fill="url(#white-piece)"/>
+        <path d="M314 401h62l-8 16h-46Z" fill="#507fa9"/>
+        <path d="m294 348 102-8m-102 23 102-8m-102 23 102-8m-99 22 97-8" fill="none" stroke="#5683ad" stroke-width="5" stroke-linecap="round"/>
+        <path d="m296 345 98-8m-98 23 98-8m-98 23 98-8" fill="none" stroke="#eeF7ff" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <path id="product-picture-nw" d="M10 0h128v28c26 0 26 32 0 32v28H82c0-25-30-25-30 0H0V10Q0 0 10 0Z"/>
+      <path id="product-picture-ne" d="M138 0h128q10 0 10 10v78h-52c0 25-30 25-30 0h-56V60c26 0 26-32 0-32Z"/>
+      <path id="product-picture-sw" d="M0 88h52c0-25 30-25 30 0h56v27c-26 0-26 31 0 31v30H10q-10 0-10-10Z"/>
+      <path id="product-picture-se" d="M138 88h56c0 25 30 25 30 0h52v78q0 10-10 10H138v-30c-26 0-26-31 0-31Z"/>
+      <clipPath id="product-picture-clip-nw"><use href="#product-picture-nw"/></clipPath>
+      <clipPath id="product-picture-clip-ne"><use href="#product-picture-ne"/></clipPath>
+      <clipPath id="product-picture-clip-sw"><use href="#product-picture-sw"/></clipPath>
+      <clipPath id="product-picture-clip-se"><use href="#product-picture-se"/></clipPath>
+      <linearGradient id="product-sky" x2="1" y2="1">
+        <stop stop-color="#142f5d"/>
+        <stop offset="1" stop-color="#30649a"/>
+      </linearGradient>
+      <g id="product-picture-space">
+        <path d="M0 0h276v176H0Z" fill="url(#product-sky)"/>
+        <circle cx="87" cy="92" r="47" fill="url(#green-piece)"/>
+        <path d="M59 60q21-20 51-10m-55 66q24 18 58 5" fill="none" stroke="#e1f4b4" stroke-width="2" opacity=".5"/>
+        <ellipse cx="87" cy="92" rx="76" ry="17" transform="rotate(-24 87 92)" fill="none" stroke="#d1e9fa" stroke-width="3.1"/>
+        <g transform="translate(205 85) rotate(27) scale(.54)">
+          <use href="#rocket-model" class="assembly-complete"/>
+          <path d="M-9 110-13 134m22-25-2 15" fill="none" stroke="#d5efa8" stroke-width="4.7" stroke-linecap="round"/>
+        </g>
+        <use href="#spark" x="21" y="26" width="16" height="16" style="color:#d2e8f9"/>
+        <use href="#spark" x="134" y="22" width="14" height="14" style="color:#e5f6c3"/>
+        <use href="#spark" x="237" y="129" width="18" height="18" style="color:#d2e8f9"/>
+        <g fill="#dcecf8"><circle cx="30" cy="145" r="2"/><circle cx="157" cy="145" r="2.6"/><circle cx="251" cy="36" r="2.7"/></g>
+      </g>
+      <g id="product-picture-lab">
+        <path d="M0 0h276v176H0Z" fill="#dce9c8"/>
+        <rect x="12" y="11" width="251" height="153" rx="11" fill="none" stroke="#b1c793" stroke-width=".9"/>
+        <use href="#workbench" transform="scale(.406 .419)"/>
+        <g transform="translate(208 110) rotate(11)">
+          <path d="M-6-28H7v21l15 25q2 5-3 5h-38q-5 0-3-5L-6-7Z" fill="#e4f1f7" stroke="#416e93" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M-14 8q7-4 16 0 6 3 12 0l7 11q0 2-3 2h-36q-3 0-3-2Z" fill="#99c85c"/>
+          <path d="M-9-28h19" fill="none" stroke="#416e93" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="-3" cy="11" r="2" fill="#e8f7cb"/>
+        </g>
+        <circle cx="207" cy="70" r="3.5" fill="#8bb958"/>
+        <circle cx="218" cy="66" r="2.1" fill="#7da946"/>
+        <use href="#spark" x="232" y="87" width="12" height="12" style="color:#6e914a"/>
+      </g>
+      <linearGradient id="product-ocean" x2=".55" y2="1">
+        <stop stop-color="#3d8fa9"/>
+        <stop offset="1" stop-color="#1b527d"/>
+      </linearGradient>
+      <g id="product-fish">
+        <path d="m-17-1-15-11q-3 0-3 4v16q0 4 3 4l15-11Z" fill="var(--fish-fin)" stroke="#275c7d" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M-22 0Q-8-21 11-14 24-9 28 0 23 12 10 15-9 19-22 0Z" fill="var(--fish-body)" stroke="#275c7d" stroke-width="1.5"/>
+        <path d="M-1-12q8 13 0 25" fill="none" stroke="#f1f8ee" stroke-width="2.5" opacity=".69"/>
+        <circle cx="16" cy="-3" r="2.9" fill="#17447e"/>
+      </g>
+      <g id="product-picture-ocean">
+        <path d="M0 0h276v176H0Z" fill="url(#product-ocean)"/>
+        <path d="M25 0h41L12 128H0V64Zm69 0h26L77 125H61Zm107 0h36l-6 111h-17Z" fill="#bde6ed" opacity=".19"/>
+        <path d="M0 149q52-14 96 3 41 14 95-3 43-13 85-3v30H0Z" fill="#416f78"/>
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 164v-54m0 23q-20-1-20-21m20 10q21-6 20-24m-20 47q-10 0-14-13m218 34q-13-23-9-44m9 33q-20-1-28-22m28 20q19-12 19-33" stroke="#a2cb72" stroke-width="5"/>
+          <path d="M58 168q13-17 14-35m-14 28q-15-7-13-16m28 15q17-2 18-16m167 23q-2-19 12-24" stroke="#83bfd1" stroke-width="4"/>
+        </g>
+        <use href="#product-fish" transform="translate(103 66) rotate(-8) scale(1.02)" style="--fish-body:#bae48b;--fish-fin:#7db65d"/>
+        <use href="#product-fish" transform="translate(188 98) scale(-.8 .8)" style="--fish-body:#d8ecf2;--fish-fin:#83c1d2"/>
+        <use href="#product-fish" transform="translate(191 43) scale(.52)" style="--fish-body:#badf87;--fish-fin:#77af5d"/>
+        <g fill="none" stroke="#cbeaf4" stroke-width="1.5" opacity=".8">
+          <circle cx="142" cy="53" r="4"/><circle cx="149" cy="37" r="3"/><circle cx="150" cy="87" r="3.3"/><circle cx="136" cy="107" r="2.5"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">К содержанию</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="Наука просто — на главную">
+        <svg aria-hidden="true"><use href="#atom"/></svg>
+        <span class="logo-type" aria-hidden="true"><span>Наука</span><span>просто</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Основное меню">
+        <a href="#nabory">Наборы</a>
+        <a href="#masha">Что тренируем</a>
+        <a href="#roditelyam">Родителям</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="hero-runway">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-layout wrap">
+          <div class="hero-copy">
+            <h1 id="hero-heading">
+              <span class="hero-line"><span>С чего начинаются</span></span>
+              <span class="hero-line hero-line-accent">
+                <span>открытия?</span>
+                <svg viewBox="0 0 430 30" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M8 21C102 4 263-1 421 12C302 8 154 14 34 26C19 27 12 26 8 21Z"/>
+                </svg>
+              </span>
+            </h1>
+            <p>Головоломки и пазлы, с которыми дети знакомятся с наукой через игру.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#nabory">Посмотреть наборы</a>
+              <a class="button button-outline" href="#zadachka" data-play-link>Решить задачку</a>
+            </div>
+          </div>
+
+          <div class="hero-art">
+            <svg class="hero-orbits" viewBox="0 0 620 650" aria-hidden="true">
+              <defs>
+                <linearGradient id="hero-disc" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#e5eef7"/>
+                  <stop offset="1" stop-color="#d1e4f3"/>
+                </linearGradient>
+                <pattern id="hero-dot-grid" width="18" height="18" patternUnits="userSpaceOnUse">
+                  <circle cx="1.4" cy="1.4" r="1.1" fill="#769fc1"/>
+                </pattern>
+                <clipPath id="hero-disc-clip">
+                  <circle cx="324" cy="336" r="232"/>
+                </clipPath>
+              </defs>
+              <circle cx="324" cy="336" r="232" fill="url(#hero-disc)"/>
+              <rect x="279" y="89" width="290" height="450" fill="url(#hero-dot-grid)" opacity=".26" clip-path="url(#hero-disc-clip)"/>
+              <circle cx="324" cy="336" r="251" fill="none" stroke="#83a6c0" stroke-width="1.3" stroke-dasharray="2 8" stroke-linecap="round" opacity=".66"/>
+              <path class="hero-orbit-line" pathLength="1" d="M92 518C52 527 30 523 23 511C-1 470 111 358 275 259S594 116 616 156C635 191 537 295 401 387C288 464 166 507 92 518Z" fill="none" stroke="#5b8fbd" stroke-width="1.75" stroke-linecap="round" opacity=".77"/>
+              <circle cx="102" cy="512" r="6" fill="#79bc32"/>
+              <circle cx="559" cy="237" r="4" fill="#6c9cc5"/>
+              <circle cx="153" cy="163" r="5" fill="#8bb4d2"/>
+              <use href="#spark" x="503" y="99" width="33" height="33" style="color:#587e2d"/>
+              <use href="#spark" x="82" y="286" width="23" height="23" style="color:#6794bd"/>
+              <use href="#atom" x="545" y="379" width="49" height="49" style="color:#5485b0;--nucleus:#79bc32" transform="rotate(-14 570 404)"/>
+              <path d="M487 456q35-14 51-3 16 12 0 24-13 11-31 8" fill="none" stroke="#4170a0" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 5"/>
+            </svg>
+            <img class="hero-masha" src="assets/masha.webp" alt="Маша в круглых очках и белом лабораторном халате" width="858" height="1458" fetchpriority="high">
+            <svg class="hero-piece" viewBox="0 0 130 144" aria-hidden="true">
+              <g transform="translate(3 9) rotate(-19 64 65)">
+                <use href="#puzzle-cutout" transform="translate(0 8)" fill="#4c732e"/>
+                <use href="#puzzle-cutout" fill="url(#green-piece)" stroke="#c2e68b" stroke-width="1.45"/>
+                <path d="M34 27h13m36 0h10q3 0 3 3v10m-62 3V30q0-3 3-3" fill="none" stroke="#f1ffd5" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+              </g>
+            </svg>
+            <svg class="hero-piece-small" viewBox="0 0 130 144" aria-hidden="true">
+              <g transform="translate(5 9) rotate(26 64 65)">
+                <use href="#puzzle-cutout" transform="translate(0 8)" fill="#214d82"/>
+                <use href="#puzzle-cutout" fill="url(#blue-piece)" stroke="#8bb9e2" stroke-width="1.45"/>
+              </g>
+            </svg>
+          </div>
+
+          <a class="scroll-cue" href="#opyt">
+            <svg aria-hidden="true"><use href="#scroll-mouse"/></svg>
+            <span>Листай к головоломке</span>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <section class="experiment" id="opyt" aria-labelledby="experiment-title">
+      <svg class="scene-curve" viewBox="0 0 1440 114" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 110C237 37 491 2 748 2c255 0 495 38 692 109v3H0Z" fill="#17447e"/>
+        <path d="M0 83C237 12 491-11 748 4c255 15 479 55 692 108" fill="none" stroke="#6995b8" stroke-width="1.2" vector-effect="non-scaling-stroke" opacity=".8"/>
+      </svg>
+      <div class="experiment-runway">
+        <span class="scroll-finish" aria-hidden="true"></span>
+        <div class="scene">
+          <div class="scene-grid wrap">
+            <div class="scene-intro">
+              <div class="scene-label"><svg aria-hidden="true"><use href="#bulb"/></svg>Головоломка «Лампочка»</div>
+              <h2 id="experiment-title">А эта деталь куда?</h2>
+              <p class="scene-instruction">Смотри, как детали складываются в лампочку.</p>
+              <progress class="scene-progress" max="100" value="100" aria-label="Сборка лампочки"></progress>
+            </div>
+
+            <div class="scene-board">
+              <svg class="bulb-board" viewBox="70 20 550 468" role="img" aria-labelledby="board-title board-desc">
+                <title id="board-title">Лампочка из деталей пазла</title>
+                <desc id="board-desc">Пустое место находится в правой верхней части лампочки. На его левой границе есть выступ соседней детали, а на нижней границе — выемка.</desc>
+                <defs>
+                  <pattern id="board-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M22 0H0v22" fill="none" stroke="#95bbdf" stroke-width=".8" opacity=".22"/>
+                  </pattern>
+                  <pattern id="slot-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+                    <path d="M0 0v8" stroke="#ccf295" stroke-width="1.5" opacity=".35"/>
+                  </pattern>
+                  <linearGradient id="glass-primary" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#e5f2ff"/>
+                    <stop offset="1" stop-color="#a9cdec"/>
+                  </linearGradient>
+                  <linearGradient id="glass-midtone" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#a7ccef"/>
+                    <stop offset="1" stop-color="#6097cc"/>
+                  </linearGradient>
+                  <linearGradient id="glass-blue" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#77abd8"/>
+                    <stop offset="1" stop-color="#3e72ad"/>
+                  </linearGradient>
+                  <linearGradient id="cap-shine" x1="0" y1="0" x2="1" y2="0">
+                    <stop stop-color="#5d8dbf"/>
+                    <stop offset=".35" stop-color="#cfdef0"/>
+                    <stop offset=".66" stop-color="#9cb9d7"/>
+                    <stop offset="1" stop-color="#5074a4"/>
+                  </linearGradient>
+                  <radialGradient id="bulb-glow">
+                    <stop stop-color="#b4f263" stop-opacity=".85"/>
+                    <stop offset=".7" stop-color="#a9e95c" stop-opacity=".33"/>
+                    <stop offset="1" stop-color="#a9e95c" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+
+                <path d="M71 21h548v466H71z" fill="url(#board-grid)"/>
+                <g fill="none" stroke="#a0c1df" opacity=".36">
+                  <circle cx="345" cy="218" r="163" stroke-dasharray="2 6" stroke-linecap="round"/>
+                  <circle cx="345" cy="218" r="183" stroke-dasharray="1 8" stroke-linecap="round"/>
+                  <path d="M345 34v413M144 218h401" stroke-dasharray="4 7" opacity=".73"/>
+                  <path d="M93 66V46h20m464 0h20v20m0 376v20h-20m-464 0H93v-20" stroke-width="1.5"/>
+                </g>
+                <circle class="bulb-halo" cx="345" cy="210" r="226" fill="url(#bulb-glow)"/>
+                <g class="bulb-rays" stroke="#d8ffa1" stroke-width="5" stroke-linecap="round">
+                  <path d="M345 37v15m139 22-11 12m48 88-17 3m-300-94 11 11m-44 88 17 2m305 66 12 7m-320-7-12 7"/>
+                  <use href="#spark" x="510" y="101" width="27" height="27" style="color:#d8ffa1" stroke="none"/>
+                </g>
+                <path d="M345 71C412 71 466 122 466 185C465 222 448 249 430 273C415 292 400 310 399 333H291C290 310 275 292 260 273C242 249 225 222 224 185C224 122 278 71 345 71Z" class="glass-outline"/>
+                <use class="slot-guide" href="#glass-ne" fill="url(#slot-hatch)" stroke="#ccef9d" stroke-width="2.5" stroke-dasharray="5 5" stroke-linejoin="round"/>
+
+                <g class="bulb-piece" data-piece="north-west">
+                  <use class="glass" href="#glass-nw" fill="url(#glass-primary)"/>
+                  <path d="M244 166c6-30 24-51 47-64" fill="none" stroke="#f6fbff" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+                </g>
+                <g class="bulb-piece" data-piece="south-west">
+                  <use class="glass" href="#glass-sw" fill="url(#glass-midtone)"/>
+                  <path d="M242 210c5 21 17 36 30 51" fill="none" stroke="#e0f3ff" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+                </g>
+                <g class="bulb-piece" data-piece="south-east">
+                  <use class="glass" href="#glass-se" fill="url(#glass-blue)"/>
+                </g>
+                <g class="bulb-base" data-piece="base">
+                  <path d="M291 328h108v63a10 10 0 0 1-10 10h-88a10 10 0 0 1-10-10z" fill="url(#cap-shine)" stroke="#0e315b" stroke-width="2.5"/>
+                  <path d="M310 400h70l-9 16a10 10 0 0 1-9 5h-34a10 10 0 0 1-9-5z" fill="#284f7c" stroke="#102f57" stroke-width="2.5"/>
+                  <path d="m292 347 105-9m-105 24 105-9m-105 24 105-9m-104 23 104-8" fill="none" stroke="#466991" stroke-width="5" stroke-linecap="round"/>
+                  <path d="m295 344 101-9m-101 24 101-9m-101 24 101-9m-100 23 100-8" fill="none" stroke="#f0f7ff" stroke-width="2.1" stroke-linecap="round" opacity=".65"/>
+                </g>
+                <path class="filament" d="M325 328v-43l-28-38c-5-7 5-13 10-8l15 15 12-15 11 15 11-15 12 15 15-15c5-5 15 1 10 8l-28 38v43" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <g class="loose-guide" fill="none" stroke="#b2d482" stroke-width="1.5" stroke-linecap="round">
+                  <path d="M483 222c39 11 66 32 67 54" stroke-dasharray="3 6"/>
+                  <circle cx="483" cy="222" r="3" fill="#b2d482"/>
+                </g>
+                <g class="answer-assembly" data-piece="answer">
+                  <use class="glass answer-glass" href="#glass-ne" fill="url(#green-piece)"/>
+                  <path d="M371 87c27 6 49 21 64 38" fill="none" stroke="#eeffd2" stroke-width="4" stroke-linecap="round" opacity=".64"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="scene-play" id="zadachka" tabindex="-1">
+              <div class="question" data-question>
+                <h3>Как повернуть последнюю деталь?</h3>
+                <div class="answers" role="group" aria-label="Варианты поворота" aria-describedby="board-desc">
+                  <button class="answer" type="button" disabled data-choice="1" aria-label="Вариант 1. Выемка снизу, выступ справа">
+                    <svg viewBox="-80 -80 160 160" aria-hidden="true">
+                      <g transform="rotate(-90)"><use href="#glass-ne" transform="translate(-406 -139)"/></g>
+                    </svg>
+                    <span>Вариант 1</span>
+                  </button>
+                  <button class="answer" type="button" disabled data-choice="2" aria-label="Вариант 2. Выемка слева, выступ снизу">
+                    <svg viewBox="-80 -80 160 160" aria-hidden="true">
+                      <use href="#glass-ne" transform="translate(-406 -139)"/>
+                    </svg>
+                    <span>Вариант 2</span>
+                  </button>
+                  <button class="answer" type="button" disabled data-choice="3" aria-label="Вариант 3. Выемка сверху, выступ слева">
+                    <svg viewBox="-80 -80 160 160" aria-hidden="true">
+                      <g transform="rotate(90)"><use href="#glass-ne" transform="translate(-406 -139)"/></g>
+                    </svg>
+                    <span>Вариант 3</span>
+                  </button>
+                </div>
+                <div class="hint" role="status" aria-live="polite" aria-atomic="true">
+                  <img class="hint-masha" src="assets/masha-thinking.webp" width="64" height="64" alt="" loading="lazy" hidden>
+                  <span data-hint></span>
+                </div>
+              </div>
+              <div class="success" data-success hidden>
+                <div class="success-copy">
+                  <h3 tabindex="-1">Получилось!</h3>
+                  <p>Лампочка загорелась. Ты нашёл нужный поворот!</p>
+                </div>
+                <img class="success-masha" src="assets/masha-cheering.webp" width="108" height="100" alt="" loading="lazy">
+                <div class="success-actions">
+                  <a class="button button-primary" href="#nabory">Посмотреть наборы</a>
+                  <button class="button button-text" type="button" data-reset>Ещё раз</button>
+                </div>
+              </div>
+              <noscript><p>Чтобы решить задачку, включи JavaScript в браузере.</p></noscript>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog wrap" id="nabory" aria-labelledby="catalog-title" data-catalog>
+      <div class="section-heading">
+        <h2 id="catalog-title">Выбери свою<br> задачку</h2>
+        <a class="button button-outline" href="mailto:SimpleScience@gmail.com">
+          <svg aria-hidden="true"><use href="#mail"/></svg>
+          Спросить о наборах
+        </a>
+      </div>
+
+      <div class="catalog-controls">
+        <div class="catalog-tabs" role="tablist" aria-label="Виды задачек" hidden>
+          <button type="button" role="tab" id="tab-logic" aria-selected="true" aria-controls="catalog-logic">Головоломки</button>
+          <button type="button" role="tab" id="tab-jigsaw" aria-selected="false" aria-controls="catalog-jigsaw" tabindex="-1">Пазлы</button>
+        </div>
+        <p class="catalog-hint" data-catalog-hint hidden>Прокручивай, чтобы собрать детали.</p>
+      </div>
+
+      <div class="catalog-panels">
+        <div class="product-grid" id="catalog-logic" role="tabpanel" aria-labelledby="tab-logic" tabindex="0">
+          <article class="product-card" data-product-id="assemble-cube" data-example aria-labelledby="product-assemble-cube-title">
+            <div class="product-copy">
+              <p class="product-example">Пример</p>
+              <h3 id="product-assemble-cube-title">Собери куб</h3>
+              <p class="product-description">Соедини объёмные детали в куб.</p>
+              <button class="button button-primary product-add" type="button" data-add-product disabled>
+                <span aria-hidden="true">+</span>
+                Купить
+              </button>
+              <div class="product-follow-up">
+                <p data-product-feedback role="status" aria-atomic="true"></p>
+                <a href="#zakaz" data-order-link hidden>Перейти к заказу</a>
+              </div>
+            </div>
+            <div class="product-art">
+              <svg viewBox="0 0 560 338" role="img" aria-label="Куб из объёмных деталей">
+                <use href="#product-stage"/>
+                <path class="product-guide" d="M280 87l84 45v94l-84 46-84-46v-94Z"/>
+                <g transform="translate(280 156)">
+                  <g class="product-piece" data-offset="-189 -77" data-angle="-7" data-pivot="0 24">
+                    <use href="#product-cube-unit" class="cube-sky"/>
+                  </g>
+                </g>
+                <g transform="translate(238 179)">
+                  <g class="product-piece" data-offset="-22 -100" data-angle="8" data-pivot="0 24">
+                    <use href="#product-cube-unit" class="cube-lime"/>
+                  </g>
+                </g>
+                <g transform="translate(322 179)">
+                  <g class="product-piece" data-offset="20 -102" data-angle="-7" data-pivot="0 24">
+                    <use href="#product-cube-unit" class="cube-pale"/>
+                  </g>
+                </g>
+                <g transform="translate(280 202)">
+                  <g class="product-piece" data-offset="190 -123" data-angle="8" data-pivot="0 24">
+                    <use href="#product-cube-unit" class="cube-lime"/>
+                  </g>
+                </g>
+                <g transform="translate(280 109)">
+                  <g class="product-piece" data-offset="-184 100" data-angle="7" data-pivot="0 24">
+                    <use href="#product-cube-unit" class="cube-pale"/>
+                  </g>
+                </g>
+                <g transform="translate(238 132)">
+                  <g class="product-piece" data-offset="-19 74" data-angle="-8" data-pivot="0 24">
+                    <use href="#product-cube-unit" class="cube-lime"/>
+                  </g>
+                </g>
+                <g transform="translate(322 132)">
+                  <g class="product-piece" data-offset="21 79" data-angle="9" data-pivot="0 24">
+                    <use href="#product-cube-unit" class="cube-sky"/>
+                  </g>
+                </g>
+                <g transform="translate(280 155)">
+                  <g class="product-piece" data-offset="186 54" data-angle="-8" data-pivot="0 24">
+                    <use href="#product-cube-unit" class="cube-lime"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </article>
+          <article class="product-card" data-product-id="catch-orbit" data-example aria-labelledby="product-catch-orbit-title">
+            <div class="product-copy">
+              <p class="product-example">Пример</p>
+              <h3 id="product-catch-orbit-title">Поймай орбиту</h3>
+              <p class="product-description">Сложи сегменты в три пересекающиеся орбиты атома.</p>
+              <button class="button button-primary product-add" type="button" data-add-product disabled>
+                <span aria-hidden="true">+</span>
+                Купить
+              </button>
+              <div class="product-follow-up">
+                <p data-product-feedback role="status" aria-atomic="true"></p>
+                <a href="#zakaz" data-order-link hidden>Перейти к заказу</a>
+              </div>
+            </div>
+            <div class="product-art">
+              <svg viewBox="0 0 560 338" role="img" aria-label="Атом с тремя орбитами">
+                <use href="#product-stage"/>
+                <g transform="translate(280 169)">
+                  <g class="product-guide">
+                    <ellipse rx="119" ry="45"/><ellipse rx="119" ry="45" transform="rotate(60)"/><ellipse rx="119" ry="45" transform="rotate(-60)"/>
+                  </g>
+                  <g class="product-piece" data-offset="-134 -83" data-angle="-4">
+                    <use href="#product-orbit-upper" class="orbit-segment orbit-blue" transform="rotate(0)"/>
+                  </g>
+                  <g class="product-piece" data-offset="134 -111" data-angle="4">
+                    <use href="#product-orbit-lower" class="orbit-segment orbit-blue" transform="rotate(0)"/>
+                  </g>
+                  <g class="product-piece" data-offset="-134 -2" data-angle="-64">
+                    <use href="#product-orbit-upper" class="orbit-segment orbit-lime" transform="rotate(60)"/>
+                  </g>
+                  <g class="product-piece" data-offset="134 -30" data-angle="-56">
+                    <use href="#product-orbit-lower" class="orbit-segment orbit-lime" transform="rotate(60)"/>
+                  </g>
+                  <g class="product-piece" data-offset="-134 79" data-angle="56">
+                    <use href="#product-orbit-upper" class="orbit-segment orbit-sky" transform="rotate(-60)"/>
+                  </g>
+                  <g class="product-piece" data-offset="134 51" data-angle="64">
+                    <use href="#product-orbit-lower" class="orbit-segment orbit-sky" transform="rotate(-60)"/>
+                  </g>
+                  <g class="product-piece" data-offset="0 129" data-angle="0">
+                    <circle r="15" fill="url(#green-piece)" stroke="#548238" stroke-width="2"/>
+                    <circle cx="-4" cy="-5" r="4" fill="#effbd5"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </article>
+          <article class="product-card" data-product-id="light-bulb" data-example aria-labelledby="product-light-bulb-title">
+            <div class="product-copy">
+              <p class="product-example">Пример</p>
+              <h3 id="product-light-bulb-title">Зажги лампочку</h3>
+              <p class="product-description">Сложи фигурные детали в силуэт лампочки.</p>
+              <button class="button button-primary product-add" type="button" data-add-product disabled>
+                <span aria-hidden="true">+</span>
+                Купить
+              </button>
+              <div class="product-follow-up">
+                <p data-product-feedback role="status" aria-atomic="true"></p>
+                <a href="#zakaz" data-order-link hidden>Перейти к заказу</a>
+              </div>
+            </div>
+            <div class="product-art">
+              <svg viewBox="0 0 560 338" role="img" aria-label="Лампочка из фигурных деталей">
+                <use href="#product-stage"/>
+                <circle class="product-light" cx="280" cy="153" r="115" fill="#d9ebac"/>
+                <g transform="translate(280 169) scale(.72) translate(-345 -244)">
+                  <path class="product-guide" d="M345 71c67 0 121 51 121 114-1 37-18 64-36 88-15 19-30 37-31 60H291c-1-23-16-41-31-60-18-24-35-51-36-88 0-63 54-114 121-114Z"/>
+                  <g class="product-piece" data-offset="-166 4" data-angle="-27" data-pivot="287 131">
+                    <use href="#glass-nw" class="product-glass" fill="url(#white-piece)"/>
+                  </g>
+                  <g class="product-piece" data-offset="160 -10" data-angle="24" data-pivot="404 133">
+                    <use href="#glass-ne" class="product-glass" fill="url(#green-piece)"/>
+                  </g>
+                  <g class="product-piece" data-offset="-147 54" data-angle="19" data-pivot="287 260">
+                    <use href="#glass-sw" class="product-glass" fill="url(#blue-piece)"/>
+                  </g>
+                  <g class="product-piece" data-offset="152 55" data-angle="-22" data-pivot="404 260">
+                    <use href="#glass-se" class="product-glass" fill="url(#white-piece)"/>
+                  </g>
+                  <path class="product-lamp-filament" d="M327 330v-38l-26-43 16 10 14-15 14 15 14-15 14 15 16-10-26 43v38" fill="none" stroke="#4a739c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <g class="product-piece" data-offset="-45 41" data-angle="-11" data-pivot="345 374">
+                    <use href="#product-bulb-base"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </article>
+        </div>
+        <div class="product-grid" id="catalog-jigsaw" role="tabpanel" aria-labelledby="tab-jigsaw" tabindex="0">
+          <article class="product-card" data-product-id="space" data-example aria-labelledby="product-space-title">
+            <div class="product-copy">
+              <p class="product-example">Пример</p>
+              <h3 id="product-space-title">Космос</h3>
+              <p class="product-description">Собери картинку с планетой и ракетой.</p>
+              <button class="button button-primary product-add" type="button" data-add-product disabled>
+                <span aria-hidden="true">+</span>
+                Купить
+              </button>
+              <div class="product-follow-up">
+                <p data-product-feedback role="status" aria-atomic="true"></p>
+                <a href="#zakaz" data-order-link hidden>Перейти к заказу</a>
+              </div>
+            </div>
+            <div class="product-art">
+              <svg viewBox="0 0 560 338" role="img" aria-label="Пазл с планетой и ракетой">
+                <use href="#product-stage"/>
+                <g transform="translate(142 79)">
+                  <rect class="product-guide" width="276" height="176" rx="10"/>
+                  <g class="product-piece" data-offset="-53 -28" data-angle="-13" data-pivot="67 43">
+                    <use href="#product-picture-nw" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-space" clip-path="url(#product-picture-clip-nw)"/>
+                    <use href="#product-picture-nw" class="picture-seam"/>
+                  </g>
+                  <g class="product-piece" data-offset="64 -27" data-angle="12" data-pivot="206 43">
+                    <use href="#product-picture-ne" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-space" clip-path="url(#product-picture-clip-ne)"/>
+                    <use href="#product-picture-ne" class="picture-seam"/>
+                  </g>
+                  <g class="product-piece" data-offset="-49 46" data-angle="14" data-pivot="66 132">
+                    <use href="#product-picture-sw" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-space" clip-path="url(#product-picture-clip-sw)"/>
+                    <use href="#product-picture-sw" class="picture-seam"/>
+                  </g>
+                  <g class="product-piece" data-offset="60 44" data-angle="-10" data-pivot="208 132">
+                    <use href="#product-picture-se" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-space" clip-path="url(#product-picture-clip-se)"/>
+                    <use href="#product-picture-se" class="picture-seam"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </article>
+          <article class="product-card" data-product-id="masha-lab" data-example aria-labelledby="product-masha-lab-title">
+            <div class="product-copy">
+              <p class="product-example">Пример</p>
+              <h3 id="product-masha-lab-title">Лаборатория Маши</h3>
+              <p class="product-description">Сложи из фрагментов картинку с Машей за рабочим столом.</p>
+              <button class="button button-primary product-add" type="button" data-add-product disabled>
+                <span aria-hidden="true">+</span>
+                Купить
+              </button>
+              <div class="product-follow-up">
+                <p data-product-feedback role="status" aria-atomic="true"></p>
+                <a href="#zakaz" data-order-link hidden>Перейти к заказу</a>
+              </div>
+            </div>
+            <div class="product-art">
+              <svg viewBox="0 0 560 338" role="img" aria-label="Пазл с Машей за рабочим столом">
+                <use href="#product-stage"/>
+                <g transform="translate(142 79)">
+                  <rect class="product-guide" width="276" height="176" rx="10"/>
+                  <g class="product-piece" data-offset="-53 -28" data-angle="-13" data-pivot="67 43">
+                    <use href="#product-picture-nw" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-lab" clip-path="url(#product-picture-clip-nw)"/>
+                    <use href="#product-picture-nw" class="picture-seam"/>
+                  </g>
+                  <g class="product-piece" data-offset="64 -27" data-angle="12" data-pivot="206 43">
+                    <use href="#product-picture-ne" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-lab" clip-path="url(#product-picture-clip-ne)"/>
+                    <use href="#product-picture-ne" class="picture-seam"/>
+                  </g>
+                  <g class="product-piece" data-offset="-49 46" data-angle="14" data-pivot="66 132">
+                    <use href="#product-picture-sw" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-lab" clip-path="url(#product-picture-clip-sw)"/>
+                    <use href="#product-picture-sw" class="picture-seam"/>
+                  </g>
+                  <g class="product-piece" data-offset="60 44" data-angle="-10" data-pivot="208 132">
+                    <use href="#product-picture-se" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-lab" clip-path="url(#product-picture-clip-se)"/>
+                    <use href="#product-picture-se" class="picture-seam"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </article>
+          <article class="product-card" data-product-id="underwater" data-example aria-labelledby="product-underwater-title">
+            <div class="product-copy">
+              <p class="product-example">Пример</p>
+              <h3 id="product-underwater-title">Подводный мир</h3>
+              <p class="product-description">Собери сцену с рыбами и кораллами.</p>
+              <button class="button button-primary product-add" type="button" data-add-product disabled>
+                <span aria-hidden="true">+</span>
+                Купить
+              </button>
+              <div class="product-follow-up">
+                <p data-product-feedback role="status" aria-atomic="true"></p>
+                <a href="#zakaz" data-order-link hidden>Перейти к заказу</a>
+              </div>
+            </div>
+            <div class="product-art">
+              <svg viewBox="0 0 560 338" role="img" aria-label="Пазл с рыбами и кораллами">
+                <use href="#product-stage"/>
+                <g transform="translate(142 79)">
+                  <rect class="product-guide" width="276" height="176" rx="10"/>
+                  <g class="product-piece" data-offset="-53 -28" data-angle="-13" data-pivot="67 43">
+                    <use href="#product-picture-nw" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-ocean" clip-path="url(#product-picture-clip-nw)"/>
+                    <use href="#product-picture-nw" class="picture-seam"/>
+                  </g>
+                  <g class="product-piece" data-offset="64 -27" data-angle="12" data-pivot="206 43">
+                    <use href="#product-picture-ne" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-ocean" clip-path="url(#product-picture-clip-ne)"/>
+                    <use href="#product-picture-ne" class="picture-seam"/>
+                  </g>
+                  <g class="product-piece" data-offset="-49 46" data-angle="14" data-pivot="66 132">
+                    <use href="#product-picture-sw" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-ocean" clip-path="url(#product-picture-clip-sw)"/>
+                    <use href="#product-picture-sw" class="picture-seam"/>
+                  </g>
+                  <g class="product-piece" data-offset="60 44" data-angle="-10" data-pivot="208 132">
+                    <use href="#product-picture-se" class="picture-depth" transform="translate(0 5)"/>
+                    <use href="#product-picture-ocean" clip-path="url(#product-picture-clip-se)"/>
+                    <use href="#product-picture-se" class="picture-seam"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="workshop" id="masha" aria-labelledby="workshop-title">
+      <div class="wrap">
+        <h2 id="workshop-title">Что тренируют<br> головоломки</h2>
+        <div class="scroll-story" data-story="workshop">
+          <div class="story-visual workshop-art" aria-hidden="true">
+            <svg viewBox="0 0 680 420">
+              <use href="#workbench"/>
+              <g class="story-layer-start" data-workshop-layer><use href="#workshop-turn"/></g>
+              <g data-workshop-layer><use href="#workshop-compare"/></g>
+              <g data-workshop-layer><use href="#workshop-retry"/></g>
+            </svg>
+          </div>
+          <ol class="story-steps">
+            <li class="story-step">
+              <div class="story-frame workshop-art" aria-hidden="true">
+                <svg viewBox="0 0 680 420"><use href="#workbench"/><use href="#workshop-turn"/></svg>
+              </div>
+              <div class="story-copy">
+                <h3>Пространственное мышление</h3>
+                <p>Маша поворачивает деталь и замечает, какой стороной она входит в выемку.</p>
+              </div>
+            </li>
+            <li class="story-step">
+              <div class="story-frame workshop-art" aria-hidden="true">
+                <svg viewBox="0 0 680 420"><use href="#workbench"/><use href="#workshop-compare"/></svg>
+              </div>
+              <div class="story-copy">
+                <h3>Внимание к деталям</h3>
+                <p>У двух похожих деталей разные края. У одной выступ круглый, у другой — острый.</p>
+              </div>
+            </li>
+            <li class="story-step">
+              <div class="story-frame workshop-art" aria-hidden="true">
+                <svg viewBox="0 0 680 420"><use href="#workbench"/><use href="#workshop-retry"/></svg>
+              </div>
+              <div class="story-copy">
+                <h3>Поиск решения</h3>
+                <p>Маша откладывает деталь, которая не подошла, и пробует другую.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="process wrap" id="kak-eto-rabotaet" aria-labelledby="process-title">
+      <div class="section-heading">
+        <h2 id="process-title">Как это работает</h2>
+        <p>Для примера соберём ракету из геометрических деталей.</p>
+      </div>
+      <div class="scroll-story" data-story="process">
+        <div class="story-visual process-art" aria-hidden="true">
+          <svg viewBox="0 0 680 420">
+            <use href="#assembly-bench"/>
+            <use href="#assembly-carton" data-process-box/>
+            <use href="#assembly-pieces" data-process-pieces/>
+          </svg>
+        </div>
+        <ol class="story-steps">
+          <li class="story-step">
+            <div class="story-frame process-art" aria-hidden="true">
+              <svg viewBox="0 0 680 420"><use href="#assembly-bench"/><use href="#assembly-carton"/></svg>
+            </div>
+            <div class="story-copy">
+              <h3>Открой коробку</h3>
+              <p>Выбери, какую фигуру хочешь собрать.</p>
+            </div>
+          </li>
+          <li class="story-step">
+            <div class="story-frame process-art" aria-hidden="true">
+              <svg viewBox="0 0 680 420"><use href="#assembly-bench"/><use href="#assembly-pieces"/></svg>
+            </div>
+            <div class="story-copy">
+              <h3>Разложи детали</h3>
+              <p>Рассмотри их и найди те, которые могут соединиться.</p>
+            </div>
+          </li>
+          <li class="story-step">
+            <div class="story-frame process-art" aria-hidden="true">
+              <svg viewBox="0 0 680 420"><use href="#assembly-bench"/><use href="#assembly-pieces" class="assembly-complete"/></svg>
+            </div>
+            <div class="story-copy">
+              <h3>Собери ракету</h3>
+              <p>Поворачивай детали и соединяй их подходящими краями.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="order wrap" id="zakaz" aria-labelledby="order-title" tabindex="-1">
+      <div class="order-heading">
+        <h2 id="order-title">Заказ</h2>
+        <p>Выбери наборы и оставь контакт для ответа.</p>
+      </div>
+      <form class="order-form" data-order-form data-recipient="SimpleScience@gmail.com" hidden>
+        <div class="order-selection">
+          <div class="order-field">
+            <label for="order-picker">Позиция</label>
+            <div class="order-picker">
+              <select id="order-picker" data-order-picker>
+                <option value="">Выбери позицию</option>
+              </select>
+              <button class="button button-outline" data-order-add type="button" disabled>Добавить</button>
+            </div>
+          </div>
+          <h3 id="order-items-title">Выбранные позиции</h3>
+          <p class="order-empty" data-order-empty>Здесь появятся выбранные наборы.</p>
+          <ul class="order-lines" data-order-lines aria-labelledby="order-items-title"></ul>
+          <p class="order-state" data-order-state hidden>Уточнить возможность заказа</p>
+          <p class="order-total" data-order-total hidden></p>
+        </div>
+
+        <div class="order-contact">
+          <div class="order-field">
+            <label for="order-name">Имя</label>
+            <input id="order-name" name="name" autocomplete="name" maxlength="100" required>
+          </div>
+          <div class="order-field">
+            <label for="order-contact">Телефон или email</label>
+            <input id="order-contact" name="contact" maxlength="150" required>
+          </div>
+          <div class="order-field">
+            <label for="order-comment">Комментарий <span>(по желанию)</span></label>
+            <textarea id="order-comment" name="comment" rows="3" maxlength="700"></textarea>
+          </div>
+          <div class="order-submit">
+            <button class="button button-primary" type="submit">
+              <svg aria-hidden="true"><use href="#mail"/></svg>
+              Подготовить письмо
+            </button>
+            <p>Письмо откроется в почтовом приложении.</p>
+          </div>
+          <div class="order-feedback">
+            <p data-order-result role="status" aria-atomic="true"></p>
+            <a data-order-draft hidden>Открыть письмо ещё раз</a>
+          </div>
+        </div>
+      </form>
+      <noscript><p>Чтобы уточнить заказ, <a href="mailto:SimpleScience@gmail.com">напиши команде</a>.</p></noscript>
+
+      <template id="order-line-template">
+        <li class="order-line">
+          <span class="order-line-name" data-line-name></span>
+          <label class="order-quantity">
+            <span>Кол-во</span>
+            <input type="number" inputmode="numeric" min="1" step="1" required>
+          </label>
+          <button class="order-remove" type="button">Убрать</button>
+        </li>
+      </template>
+    </section>
+
+    <section class="parents wrap" id="roditelyam" aria-labelledby="parents-title">
+      <div class="parents-copy">
+        <h2 id="parents-title">Родителям</h2>
+        <p>Начните с короткой задачки и дайте ребёнку время проверить свою догадку.</p>
+      </div>
+      <div class="faq" aria-label="Частые вопросы">
+        <details>
+          <summary>С чего начать?<span aria-hidden="true"></span></summary>
+          <p><a href="#zadachka" data-play-link>Попробуйте вместе собрать лампочку.</a> Предложите ребёнку объяснить, почему выбранная деталь подходит.</p>
+        </details>
+        <details>
+          <summary>Чем головоломки отличаются от пазлов?<span aria-hidden="true"></span></summary>
+          <p>В головоломках нужно подобрать и повернуть детали, чтобы собрать фигуру. В пазлах фрагменты складываются в картинку.</p>
+        </details>
+        <details>
+          <summary>Как уточнить возраст и комплектацию?<span aria-hidden="true"></span></summary>
+          <p>Напишите на <a href="mailto:SimpleScience@gmail.com">SimpleScience@gmail.com</a> и назовите интересующий набор.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <a class="logo footer-logo" href="#top" aria-label="Наука просто — в начало страницы">
+          <svg aria-hidden="true"><use href="#atom"/></svg>
+          <span class="logo-type" aria-hidden="true"><span>Наука</span><span>просто</span></span>
+        </a>
+        <p>Не бойся сложных задач — каждое большое открытие начинается с любопытства!</p>
+      </div>
+      <address>
+        <a href="mailto:SimpleScience@gmail.com">SimpleScience@gmail.com</a>
+        <a href="tel:+79872315667">+7 (987) 231-56-67</a>
+        <span>www.SimpleScience.ru</span>
+      </address>
+    </div>
+  </footer>
+</body>
+</html>
